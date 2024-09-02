@@ -47,5 +47,76 @@ let person = {
   },
 };
 
-console.log((person.setAge = "20"));
-console.log(person);
+// console.log((person.setAge = "20"));
+// console.log(person);
+
+//-----------------class, extends, getter, setter 연습문제-------------------
+
+class Puppy {
+  constructor(type, color) {
+    this.type = type;
+    this.color = color;
+  }
+  eat1year() {
+    if (this instanceof Cat) {
+      this.age++;
+      return this.age;
+    }
+  }
+}
+
+let puppy1 = new Puppy("말티즈", "white");
+let puppy2 = new Puppy("진돗개", "brown");
+
+// console.log(puppy1.eat1year());
+class Cat extends Puppy {
+  constructor(type, color, age) {
+    super(type, color);
+    this.age = age;
+  }
+}
+
+let cat1 = new Cat("코숏", "white", 5);
+let cat2 = new Cat("러시안블루", "brown", 5);
+// console.log(cat1.eat1year());
+
+class Unit {
+  constructor() {
+    this.공격력 = 5;
+    this.체력 = 100;
+  }
+  get battlePoint() {
+    return this.공격력 + this.체력;
+  }
+  set heal(num) {
+    this.체력 = this.체력 + num;
+  }
+}
+
+const aa = new Unit();
+aa.heal = 50;
+// console.log(aa);
+
+let data = {
+  odd: [1, 3],
+  even: [2, 4, 6],
+  setter: function (...num) {
+    num.forEach((ele) => {
+      if (ele % 2 == 1) {
+        this.odd.push(ele);
+      } else {
+        this.even.push(ele);
+      }
+    });
+  },
+  // getter: function (...num) {
+  //   num.sort((a, b) => a - b);
+  // },
+  get getter() {
+    return [...this.odd, ...this.even].sort((a, b) => a - b);
+  },
+};
+// data.setter(1, 2, 3, 4, 5);
+console.log(data.getter);
+
+// console.log(data.setter(1,2,3,4));

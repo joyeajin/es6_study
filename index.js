@@ -117,6 +117,42 @@ let data = {
   },
 };
 // data.setter(1, 2, 3, 4, 5);
-console.log(data.getter);
+// console.log(data.getter);
 
 // console.log(data.setter(1,2,3,4));
+
+//-----------------Destructuring -------------------
+// const [a, b, c = 5] = [2, 3];
+
+// let { name, age } = { name: "kim", age: 30 };
+
+let name = "kim";
+let age = 30;
+let obj = { name, age };
+// console.log(obj);
+
+var [number, address] = [30, "seoul"];
+var { address: a, number = 20 } = { address, number };
+// console.log(number);
+
+let 신체정보 = {
+  body: {
+    height: 190,
+    weight: 70,
+  },
+  size: ["상의 Large", "바지 30인치"],
+};
+
+// let [height, weight, 상의사이즈, 하의사이즈] = [
+//   신체정보.body.height,
+//   신체정보.body.weight,
+//   신체정보.size[0],
+//   신체정보.size[1],
+// ];
+
+let {
+  body: { height, weight },
+  size: [상의사이즈, 하의사이즈],
+} = 신체정보;
+
+console.log(height, weight, 상의사이즈, 하의사이즈);

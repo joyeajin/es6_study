@@ -155,4 +155,32 @@ let {
   size: [상의사이즈, 하의사이즈],
 } = 신체정보;
 
-console.log(height, weight, 상의사이즈, 하의사이즈);
+// console.log(height, weight, 상의사이즈, 하의사이즈);
+
+//-----------------promise -------------------
+var 프로미스 = new Promise(function (성공, 실패) {
+  var 어려운연산 = 1 + 1;
+  성공(어려운연산);
+});
+
+프로미스
+  .then(function (결과) {
+    console.log("연산이 성공했습니다 : " + 결과);
+  })
+  .catch(function () {
+    console.log("연산 실패");
+  });
+
+var promise = new Promise(function (success, fail) {
+  setTimeout(() => {
+    success();
+  }, 1000);
+});
+
+promise
+  .then(function () {
+    console.log("1초 대기 성공");
+  })
+  .catch(function () {
+    console.log("대기 실패");
+  });
